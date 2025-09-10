@@ -11,30 +11,55 @@ type Agent = {
     call: string;
 };
 
-// Randomly choose between two call numbers
-function getRandomCallNumber() {
-    const callNumbers = ["+971559786527", "+601125225441", "+17786440268"];
-    return callNumbers[Math.floor(Math.random() * callNumbers.length)];
-}
+// ✅ Static array of agents (you can manually add more here)
+const allAgents: Agent[] = [
+    { id: 1001, agent: "Master", phone: "+1775638294", call: "+971559786527" },
+    { id: 1002, agent: "Master", phone: "+1078347291", call: "+971559786527" },
+    { id: 1003, agent: "Master", phone: "+1271293847", call: "+971559786527" },
+    { id: 1004, agent: "Master", phone: "+1779483726", call: "+971559786527" },
+    { id: 1005, agent: "Master", phone: "+1075647382", call: "+971559786527" },
+    { id: 1006, agent: "Master", phone: "+1278374659", call: "+971559786527" },
+    { id: 1007, agent: "Master", phone: "+1772938475", call: "+971559786527" },
+    { id: 1008, agent: "Master", phone: "+1079384756", call: "+971559786527" },
+    { id: 1009, agent: "Master", phone: "+1275647382", call: "+971559786527" },
+    { id: 1010, agent: "Master", phone: "+971559786527", call: "+971559786527" },
 
-// Generate 80 agents dynamically
-const generateAgents = (count: number, startId: number): Agent[] => {
-    const agents: Agent[] = [];
-    for (let i = 1; i <= count; i++) {
-        agents.push({
-            id: startId + i,
-            agent: "Master",
-            phone: `+855${Math.floor(10000000 + Math.random() * 89999999)}`,
-            call: getRandomCallNumber(),
-        });
-    }
-    return agents;
-};
+    { id: 1011, agent: "Master", phone: "+1773847562", call: "+601125225441" },
+    { id: 1012, agent: "Master", phone: "+1078473629", call: "+601125225441" },
+    { id: 1013, agent: "Master", phone: "+1279483726", call: "+601125225441" },
+    { id: 1014, agent: "Master", phone: "+1775647382", call: "+601125225441" },
+    { id: 1015, agent: "Master", phone: "+1072938475", call: "+601125225441" },
+    { id: 1016, agent: "Master", phone: "+1278374659", call: "+601125225441" },
+    { id: 1017, agent: "Master", phone: "+1779384756", call: "+601125225441" },
+    { id: 1018, agent: "Master", phone: "+1075647382", call: "+601125225441" },
+    { id: 1019, agent: "Master", phone: "+1273847562", call: "+601125225441" },
+    { id: 1020, agent: "Master", phone: "+601125225441", call: "+601125225441" },
 
-// মোট 80 row বানালাম
-const allAgents: Agent[] = generateAgents(30, 1000);
+    { id: 1021, agent: "Master", phone: "+1772938475", call: "+17786440268" },
+    { id: 1022, agent: "Master", phone: "+1079384756", call: "+17786440268" },
+    { id: 1023, agent: "Master", phone: "+1275647382", call: "+17786440268" },
+    { id: 1024, agent: "Master", phone: "+1778374659", call: "+17786440268" },
+    { id: 1025, agent: "Master", phone: "+1072938475", call: "+17786440268" },
+    { id: 1026, agent: "Master", phone: "+1279483726", call: "+17786440268" },
+    { id: 1027, agent: "Master", phone: "+1773847562", call: "+17786440268" },
+    { id: 1028, agent: "Master", phone: "+1078473629", call: "+17786440268" },
+    { id: 1029, agent: "Master", phone: "+1275647382", call: "+17786440268" },
+    { id: 1030, agent: "Master", phone: "+17786440268", call: "+17786440268" },
 
-// Shuffle function
+    { id: 1031, agent: "Master", phone: "+1779483726", call: "+601125047946" },
+    { id: 1032, agent: "Master", phone: "+1075647382", call: "+601125047946" },
+    { id: 1033, agent: "Master", phone: "+1278374659", call: "+601125047946" },
+    { id: 1034, agent: "Master", phone: "+1772938475", call: "+601125047946" },
+    { id: 1035, agent: "Master", phone: "+1079384756", call: "+601125047946" },
+    { id: 1036, agent: "Master", phone: "+1275647382", call: "+601125047946" },
+    { id: 1037, agent: "Master", phone: "+1778374659", call: "+601125047946" },
+    { id: 1038, agent: "Master", phone: "+1072938475", call: "+601125047946" },
+    { id: 1039, agent: "Master", phone: "+1279483726", call: "+601125047946" },
+    { id: 1040, agent: "Master", phone: "+601125047946", call: "+601125047946" },
+];
+
+
+// Shuffle function (optional)
 function shuffleArray<T>(array: T[]): T[] {
     const shuffled = [...array];
     for (let i = shuffled.length - 1; i > 0; i--) {
@@ -122,20 +147,17 @@ const renderTable = (title: string, data: Agent[]) => (
             </table>
         </div>
     </div>
-
-
-
 );
 
-type AgentLlistProps = {
+type AgentListProps = {
     agentId: string;
 };
 
-export default function AgentLlist({ agentId }: AgentLlistProps) {
+export default function AgentList({ agentId }: AgentListProps) {
     const [agents, setAgents] = useState<Agent[]>([]);
 
     useEffect(() => {
-        setAgents(shuffleArray(allAgents));
+        setAgents(shuffleArray(allAgents)); // optional shuffle
     }, []);
 
     const filterByAgentId = (data: Agent[]) => {
@@ -162,7 +184,6 @@ export default function AgentLlist({ agentId }: AgentLlistProps) {
                     tableData
                 )
             )}
-
         </main>
     );
 }
