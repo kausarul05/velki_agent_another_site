@@ -26,7 +26,7 @@ export default function Navbar({ setSearchAgentId }: NavbarProps) {
 
     let animation: number;
     let position = window.innerWidth; // শুরু হবে ডান দিক থেকে
-    const speed = 9; // স্ক্রল স্পিড (px per frame)
+    const speed = 2; // স্ক্রল স্পিড (px per frame)
 
     const step = () => {
       if (el) {
@@ -50,7 +50,7 @@ export default function Navbar({ setSearchAgentId }: NavbarProps) {
   return (
     <div className="bg-gray-100 flex flex-col items-center justify-start py-10 pt-5 pb-0 px-4">
       {/* Header */}
-      <div className="w-full shadow text-right text-xl pb-2 text-red-700 font-semibold mb-4">
+      <div className="w-full shadow text-right lg:text-xl text-sm pb-2 text-red-700 font-semibold mb-4">
         <a
           href={`https://wa.me/+15064058213`}
           target="_blank"
