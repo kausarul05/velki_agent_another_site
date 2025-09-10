@@ -35,7 +35,7 @@ const allAgents: Agent[] = [
     { id: 1019, agent: "Master", phone: "+601125225441", call: "+601125225441" },
     { id: 1020, agent: "Master", phone: "+601125225441", call: "+601125225441" },
 
-    { id: 1021, agent: "Master", phone: "+97786440268", call: "+17786440268" },
+    { id: 1021, agent: "Master", phone: "+7786440268", call: "+17786440268" },
     { id: 1022, agent: "Master", phone: "+97786440268", call: "+17786440268" },
     { id: 1023, agent: "Master", phone: "+97786440268", call: "+17786440268" },
     { id: 1024, agent: "Master", phone: "+97786440268", call: "+17786440268" },
@@ -73,7 +73,7 @@ function shuffleArray<T>(array: T[]): T[] {
 const renderTable = (title: string, data: Agent[]) => (
     <div
         key={title}
-        className="my-4 border border-gray-200 rounded-lg shadow-lg overflow-hidden"
+        className="my-4 mt-0 border border-gray-200 rounded-lg shadow-lg overflow-hidden"
     >
         {/* Title */}
         <h3 className="text-center text-sm md:text-base font-bold bg-gradient-to-r from-indigo-500 via-fuchsia-500 to-rose-500 text-white py-2 md:py-3 shadow-md tracking-wide">

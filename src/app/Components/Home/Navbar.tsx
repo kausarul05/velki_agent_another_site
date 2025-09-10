@@ -1,4 +1,6 @@
+import Image from 'next/image';
 import React, { useEffect, useRef, useState } from 'react';
+import logo from "@/../public/download2.png"
 
 interface NavbarProps {
   setSearchAgentId: (id: string) => void;
@@ -48,17 +50,30 @@ export default function Navbar({ setSearchAgentId }: NavbarProps) {
   }, [current]);
 
   return (
-    <div className="bg-gray-100 flex flex-col items-center justify-start py-10 pt-5 pb-0 px-4">
+    <div className="bg-gray-100 flex flex-col items-center justify-start py-10 pt-2 pb-0 px-4">
       {/* Header */}
-      <div className="w-full shadow text-right lg:text-xl text-sm pb-2 text-red-700 font-semibold mb-4">
-        <a
-          href={`https://wa.me/+15064058213`}
-          target="_blank"
-          rel="noopener noreferrer"
-          className='bg-gradient-to-r from-indigo-500 via-fuchsia-500 to-rose-500 text-white px-4 py-2 rounded-full inline-block'
-        >
-          কাস্টমার সার্ভিস
-        </a>
+      <div className="w-full flex flex-row items-center justify-between shadow">
+        <div>
+          <Image
+            src={logo}
+            alt="Velki Logo"
+            width={250}
+            height={250}
+            className='mb-4 object-fill lg:h-14 lg:w-full w-48'
+            priority={true}
+          />
+          {/* <h1 className='text-3xl text-black font-bold'>Velki</h1> */}
+        </div>
+        <div className="w-full text-right lg:text-xl text-sm pb-2 text-red-700 font-semibold">
+          <a
+            href={`https://wa.me/+15064058213`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className='bg-gradient-to-r from-indigo-500 via-fuchsia-500 to-rose-500 text-white px-4 py-2 rounded-full inline-block'
+          >
+            কাস্টমার সার্ভিস
+          </a>
+        </div>
       </div>
 
       {/* Scrolling Text */}
@@ -73,7 +88,7 @@ export default function Navbar({ setSearchAgentId }: NavbarProps) {
       </div>
 
       {/* Agent Form Card */}
-      <div className="bg-white text-black shadow-lg rounded-lg p-8 pt-4 w-full max-w-md mb-4">
+      <div className="bg-white text-black shadow-lg rounded-lg p-8 pt-4 w-full max-w-md">
         <h2 className="text-center text-lg font-semibold mb-6">
           এজেন্ট এর আইডি নম্বর দিয়ে খুঁজুন:
         </h2>
