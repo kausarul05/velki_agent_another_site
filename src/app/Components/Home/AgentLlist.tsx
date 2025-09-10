@@ -13,7 +13,7 @@ type Agent = {
 
 // ✅ Static array of agents (you can manually add more here)
 const allAgents: Agent[] = [
-    { id: 1001, agent: "Master", phone: "+171559786527", call: "+971559786527" },
+    { id: 1001, agent: "Master", phone: "+971559786527", call: "+971559786527" },
     { id: 1002, agent: "Master", phone: "+171559786527", call: "+971559786527" },
     { id: 1003, agent: "Master", phone: "+171559786527", call: "+971559786527" },
     { id: 1004, agent: "Master", phone: "+171559786527", call: "+971559786527" },
